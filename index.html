@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -41,8 +41,9 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content reveal">
-        <img src="images/logo-white.png" alt="Tokyo Table — Japanese Cafe" class="hero-logo-img">
-        <p class="hero-text">Hand-pulled udon, crisp karaage and quiet izakaya warmth — a slice of Tokyo café culture, served fresh in Kerala.</p>
+        <span class="hero-kicker">東京の食卓 / Tokyo cafe warmth</span>
+        <h1 class="hero-title">Tokyo Table</h1>
+        <p class="hero-text">Hand-pulled udon, crisp karaage and quiet izakaya warmth — a slice of Tokyo cafe culture, served fresh in Kerala.</p>
         <div class="hero-buttons">
             <a href="#menu" class="btn btn-primary">Explore Menu</a>
             <a href="#contact" class="btn btn-outline">Find Us</a>
@@ -53,6 +54,7 @@
 <!-- Services -->
 <div class="services-bar">
     <div class="container services-grid">
+        <div class="service-stamp">いらっしゃいませ</div>
         <div class="service-item"><i class="ph ph-fork-knife"></i> Dine-in</div>
         <div class="service-item"><i class="ph ph-shopping-bag"></i> Takeaway</div>
         <div class="service-item"><i class="ph ph-moped"></i> Delivery</div>
@@ -65,7 +67,7 @@
 <section id="about" class="about section-padding">
     <div class="container about-layout">
         <div class="about-text reveal">
-            <span class="eyebrow">Our Story</span>
+            <span class="eyebrow">Our Story · 物語</span>
             <h2 class="section-title">A Taste of Japan, Made in Kerala</h2>
             <div class="title-underline"></div>
             <p class="section-desc">From hand-pulled Udon bowls simmered slow to crisp, golden Karaage fried to order, every plate at Tokyo Table is built for a genuine Japanese café experience — unhurried, comforting, and full of flavour. Whether you join us in-house or order in, we bring that spirit straight to your table.</p>
@@ -85,8 +87,8 @@
 <section id="menu" class="menu section-padding">
     <div class="container">
         <div class="section-header reveal">
-            <span class="eyebrow">Menu</span>
-            <h2 class="section-title">What We're Serving</h2>
+            <span class="eyebrow">Menu · 献立</span>
+            <h2 class="section-title">Culinary Masterpieces</h2>
             <div class="title-underline center"></div>
         </div>
         <div class="menu-tabs reveal">
@@ -97,6 +99,9 @@
             <button class="tab-btn" data-filter="dessert">Dessert</button>
         </div>
         <div class="menu-grid reveal" id="menuGrid"></div>
+        <div class="menu-actions reveal">
+            <button class="btn btn-outline see-more-btn" id="seeMoreMenu" type="button">See More</button>
+        </div>
     </div>
 </section>
 
@@ -104,13 +109,14 @@
 <section id="order" class="order section-padding">
     <div class="container">
         <div class="section-header reveal">
-            <span class="eyebrow">Order</span>
-            <h2 class="section-title">Order Online</h2>
+            <span class="eyebrow">Order · 注文</span>
+            <h2 class="section-title">Build Your Table</h2>
             <div class="title-underline center"></div>
         </div>
         <div class="order-layout reveal">
             <div class="order-panel">
                 <h3>Delivery Details</h3>
+                <p class="panel-note">Add your favorites, enter your details, and send the final order directly through WhatsApp.</p>
                 <form id="checkout-form" class="checkout-form">
                     <div class="input-row">
                         <div class="input-group">
@@ -126,17 +132,18 @@
                         <label>Delivery Address</label>
                         <input type="text" id="cust-address" required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full" id="submit-order" disabled>Place Order</button>
+                    <button type="submit" class="btn btn-primary btn-full" id="submit-order" disabled><i class="ph ph-whatsapp-logo"></i> Send on WhatsApp</button>
                 </form>
                 <div class="order-success" id="order-success">
                     <i class="ph ph-check-circle"></i>
-                    <h3>Order Received!</h3>
-                    <p class="section-desc">We'll call you shortly to confirm.</p>
+                    <h3>WhatsApp Order Ready</h3>
+                    <p class="section-desc">Your order opens in WhatsApp with all details filled in.</p>
                 </div>
             </div>
             <div class="cart-box">
-                <h3>Your Order</h3>
-                <div id="cart-items"><div class="empty-cart-msg">Your cart is elegantly empty. Select items from our menu.</div></div>
+                <h3>Your Selections</h3>
+                <p class="panel-note">Review your table before sending it to us on WhatsApp.</p>
+                <div id="cart-items"><div class="empty-cart-msg">Your table is waiting. Choose a masterpiece from the menu.</div></div>
                 <div class="cart-total" id="cart-total">
                     <span>Total</span>
                     <span id="total-amount">₹0</span>
@@ -150,7 +157,7 @@
 <section id="reviews" class="reviews section-padding">
     <div class="container">
         <div class="section-header reveal">
-            <span class="eyebrow">Reviews</span>
+            <span class="eyebrow">Reviews · 声</span>
             <h2 class="section-title">What Guests Are Saying</h2>
             <div class="title-underline center"></div>
         </div>
@@ -214,11 +221,11 @@
 <section id="contact" class="contact section-padding">
     <div class="container contact-layout reveal">
         <div class="contact-info">
-            <span class="eyebrow">Contact</span>
+            <span class="eyebrow">Contact · 場所</span>
             <h2 class="section-title">Get in Touch</h2>
             <div class="title-underline"></div>
-            <p class="section-desc">Reach out for reservations, large orders, or any inquiries. We look forward to hosting you.</p>
-            <div class="contact-links">
+            <p class="section-desc">Reach out for reservations, large orders, or a quiet bowl of udon after a long day. We look forward to hosting you.</p>
+            <div class="contact-links platform-links">
                 <a href="https://wa.me/917736696950" class="contact-card">
                     <div class="icon-box"><i class="ph ph-whatsapp-logo"></i></div>
                     <div class="contact-card-text"><span>WhatsApp &amp; Phone</span><strong>077366 96950</strong></div>
@@ -241,16 +248,32 @@
 
 <!-- Footer -->
 <footer class="footer">
-    <div class="container footer-content">
-        <img src="images/logo-white.png" alt="Tokyo Table" class="footer-logo-img">
-        <div class="footer-links">
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#order">Order</a>
+    <div class="container footer-content footer-rich">
+        <div class="footer-brand">
+            <img src="images/logo-white.png" alt="Tokyo Table" class="footer-logo-img">
+            <p>Japanese cafe comfort in Aluva, serving udon, karaage, matcha, coffee, and fresh-made sides.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="#about">Our Story</a>
+            <a href="#menu">Culinary Masterpieces</a>
+            <a href="#reviews">Guest Reviews</a>
+            <a href="#order">Order on WhatsApp</a>
+        </div>
+        <div class="footer-column footer-platforms">
+            <h4>Platforms</h4>
+            <a href="https://wa.me/917736696950" target="_blank"><i class="ph ph-whatsapp-logo"></i> WhatsApp</a>
+            <a href="https://www.instagram.com/tokyo.table95/" target="_blank"><i class="ph ph-instagram-logo"></i> Instagram</a>
+            <a href="https://www.google.com/maps/place/Tokyo+Table+Japanese+cafe/@10.0782234,76.3768474,16z/data=!4m15!1m8!3m7!1s0x3b080b001584c8e1:0x7284343944838302!2sTokyo+Table+Japanese+cafe!8m2!3d10.0782234!4d76.3768474!10e9!16s%2Fg%2F11l_4mglsk!3m5!1s0x3b080b001584c8e1:0x7284343944838302!8m2!3d10.0782234!4d76.3768474!16s%2Fg%2F11l_4mglsk?entry=ttu" target="_blank"><i class="ph ph-map-pin"></i> Google Maps</a>
+        </div>
+        <div class="footer-column">
+            <h4>Visit</h4>
+            <span>Aluva, Kerala, India</span>
+            <span>Dine-in · Takeaway · Delivery</span>
+            <span>Fresh bowls, every day</span>
         </div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2026 Tokyo Table Japanese Cafe. All rights reserved.</p></div>
+    <div class="footer-bottom"><p>&copy; 2026 Tokyo Table. All rights reserved. Japanese Cafe · Udon · Karaage · Matcha · Aluva, Kerala.</p></div>
 </footer>
 
 <!-- Modal -->
@@ -258,7 +281,7 @@
     <div class="modal-window">
         <button class="modal-close" id="modalClose"><i class="ph ph-x"></i></button>
         <div class="modal-layout">
-            <div class="modal-image-col"><i class="ph ph-image"></i><p>Image Unavailable</p></div>
+            <div class="modal-image-col"><span class="modal-jp">いただきます</span><i class="ph ph-bowl-food"></i><p>Prepared fresh to order</p></div>
             <div class="modal-info-col">
                 <span class="modal-category" id="modalCat"></span>
                 <h2 class="modal-title" id="modalTitle"></h2>
@@ -273,6 +296,10 @@
     </div>
 </div>
 
-<script src="app.js"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
+
+
+
+
