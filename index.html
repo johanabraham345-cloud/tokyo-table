@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <nav class="navbar" id="navbar">
     <div class="nav-container">
         <a href="#home" class="nav-logo-area">
@@ -26,13 +25,15 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-actions">
+            <button class="btn btn-outline owner-button" id="ownerLoginOpen" type="button">
+                <i class="ph ph-user"></i> Login
+            </button>
             <a href="#order" class="btn btn-outline nav-btn">Order Online</a>
             <div class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span></div>
         </div>
     </div>
 </nav>
 
-<!-- Hero -->
 <section id="home" class="hero">
     <div class="hero-slider">
         <div class="hero-bg hero-slide active" style="background-image: url('images/Tokyo_Table_Exterior__7_.png');"></div>
@@ -51,7 +52,6 @@
     </div>
 </section>
 
-<!-- Services -->
 <div class="services-bar">
     <div class="container services-grid">
         <div class="service-stamp">いらっしゃいませ</div>
@@ -63,7 +63,6 @@
     </div>
 </div>
 
-<!-- About -->
 <section id="about" class="about section-padding">
     <div class="container about-layout">
         <div class="about-text reveal">
@@ -73,7 +72,7 @@
             <p class="section-desc">From hand-pulled Udon bowls simmered slow to crisp, golden Karaage fried to order, every plate at Tokyo Table is built for a genuine Japanese café experience — unhurried, comforting, and full of flavour. Whether you join us in-house or order in, we bring that spirit straight to your table.</p>
             <div class="about-stats">
                 <div class="about-stat"><strong>200+</strong><span>5-Star Reviews</span></div>
-                <div class="about-stat"><strong>29</strong><span>Dishes &amp; Drinks</span></div>
+                <div class="about-stat"><strong>29</strong><span>Dishes & Drinks</span></div>
                 <div class="about-stat"><strong>7</strong><span>Days a Week</span></div>
             </div>
         </div>
@@ -83,7 +82,6 @@
     </div>
 </section>
 
-<!-- Menu -->
 <section id="menu" class="menu section-padding">
     <div class="container">
         <div class="section-header reveal">
@@ -98,6 +96,15 @@
             <button class="tab-btn" data-filter="drinks">Beverages</button>
             <button class="tab-btn" data-filter="dessert">Dessert</button>
         </div>
+
+        <div class="shop-tools reveal" style="margin-bottom: 24px; display: flex; justify-content: center;">
+            <div id="loginStatus" class="login-status" style="margin-right: 12px; display: flex; align-items: center;"></div>
+            <div class="admin-catalog-actions hidden" id="adminCatalogActions">
+                <button class="btn btn-primary compact" id="addProductOpen" type="button" style="padding: 8px 16px; font-size: 14px;">+ Add Dish</button>
+                <button class="btn btn-outline compact" id="resetCatalog" type="button" style="padding: 8px 16px; font-size: 14px;">Reset Catalog</button>
+            </div>
+        </div>
+
         <div class="menu-grid reveal" id="menuGrid"></div>
         <div class="menu-actions reveal">
             <button class="btn btn-outline see-more-btn" id="seeMoreMenu" type="button">See More</button>
@@ -105,7 +112,6 @@
     </div>
 </section>
 
-<!-- Order -->
 <section id="order" class="order section-padding">
     <div class="container">
         <div class="section-header reveal">
@@ -153,7 +159,6 @@
     </div>
 </section>
 
-<!-- Reviews -->
 <section id="reviews" class="reviews section-padding">
     <div class="container">
         <div class="section-header reveal">
@@ -217,7 +222,6 @@
     </div>
 </section>
 
-<!-- Contact -->
 <section id="contact" class="contact section-padding">
     <div class="container contact-layout reveal">
         <div class="contact-info">
@@ -228,7 +232,7 @@
             <div class="contact-links platform-links">
                 <a href="https://wa.me/917736696950" class="contact-card">
                     <div class="icon-box"><i class="ph ph-whatsapp-logo"></i></div>
-                    <div class="contact-card-text"><span>WhatsApp &amp; Phone</span><strong>077366 96950</strong></div>
+                    <div class="contact-card-text"><span>WhatsApp & Phone</span><strong>077366 96950</strong></div>
                 </a>
                 <a href="https://www.instagram.com/tokyo.table95/" target="_blank" class="contact-card">
                     <div class="icon-box"><i class="ph ph-instagram-logo"></i></div>
@@ -246,7 +250,6 @@
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
     <div class="container footer-content footer-rich">
         <div class="footer-brand">
@@ -273,10 +276,9 @@
             <span>Fresh bowls, every day</span>
         </div>
     </div>
-    <div class="footer-bottom"><p>&copy; 2026 Tokyo Table. All rights reserved. Japanese Cafe · Udon · Karaage · Matcha · Aluva, Kerala.</p></div>
+    <div class="footer-bottom"><p>© 2026 Tokyo Table. All rights reserved. Japanese Cafe · Udon · Karaage · Matcha · Aluva, Kerala.</p></div>
 </footer>
 
-<!-- Modal -->
 <div id="itemModal" class="modal-backdrop">
     <div class="modal-window">
         <button class="modal-close" id="modalClose"><i class="ph ph-x"></i></button>
@@ -296,10 +298,95 @@
     </div>
 </div>
 
+<div class="modal-backdrop" id="ownerModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-window logic-card-container" style="max-width: 420px;">
+        <button class="modal-close" id="ownerModalClose" type="button" aria-label="Close login"><i class="ph ph-x"></i></button>
+        <form class="checkout-form" id="ownerLoginForm" style="padding: 10px 0 0 0;">
+            <span class="eyebrow">Account</span>
+            <h2 style="margin-bottom: 8px; font-size: 24px;">Admin Login</h2>
+            <p class="panel-note" style="margin-bottom: 20px;">Enter credentials to unlock structural menu modifications.</p>
+            
+            <button class="btn btn-outline btn-full" id="googleLoginBtn" type="button" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                Sign in with Google
+            </button>
+
+            <div style="text-align: center; margin: 12px 0; color: var(--text-muted, #aaa); font-size: 12px; letter-spacing: 1px;">OR</div>
+
+            <div class="input-group" style="margin-bottom: 12px;">
+                <label>Email Address</label>
+                <input id="ownerEmailInput" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="input-group" style="margin-bottom: 20px;">
+                <label>Password</label>
+                <input id="ownerPasswordInput" type="password" placeholder="••••••••" required />
+            </div>
+            <button class="btn btn-primary btn-full" type="submit">Continue with Email</button>
+            <button class="btn btn-outline btn-full hidden" id="ownerLogout" type="button" style="margin-top: 12px; border-color: #ff4a4a; color: #ff4a4a;">Logout Admin Account</button>
+        </form>
+    </div>
+</div>
+
+<div class="modal-backdrop" id="addProductModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-window" style="max-width: 680px;">
+        <button class="modal-close" id="addProductClose" type="button" aria-label="Close add product"><i class="ph ph-x"></i></button>
+        <form class="checkout-form" id="addProductForm" style="padding: 10px 0 0 0;">
+            <span class="eyebrow">Kitchen Dashboard</span>
+            <h2 style="margin-bottom: 20px; font-size: 24px;">Add New Menu Item</h2>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 12px;">
+                    <label id="imageUploadArea" style="border: 2px dashed #444; border-radius: 8px; padding: 30px 15px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #141518;">
+                        <input id="newProductImage" name="imageFile" type="file" accept="image/*" style="display: none;" />
+                        <img id="imagePreview" src="" alt="" class="hidden" style="max-width: 100%; max-height: 140px; border-radius: 4px;" />
+                        <div class="upload-placeholder" style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                            <i class="ph ph-image-square" style="font-size: 32px; color: #666;"></i>
+                            <span style="font-size: 13px; color: #888;">Upload Dish Image</span>
+                        </div>
+                    </label>
+                    <div class="input-group">
+                        <label>Or Image Asset URL</label>
+                        <input name="imageUrl" type="url" placeholder="https://images.../udon.png" />
+                    </div>
+                </div>
+
+                <div style="flex: 1.2; min-width: 280px; display: flex; flex-direction: column; gap: 12px;">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Dish Name</label>
+                            <input name="name" type="text" placeholder="e.g., Beef Udon" required />
+                        </div>
+                        <div class="input-group">
+                            <label>Price (₹)</label>
+                            <input name="price" type="number" min="0" placeholder="Price in INR" required />
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Category</label>
+                            <select name="category" style="width: 100%; height: 45px; background: #1a1b1f; border: 1px solid #333; color: #fff; padding: 0 12px; border-radius: 6px; font-family: inherit;">
+                                <option value="udon">Udon</option>
+                                <option value="sides">Sides</option>
+                                <option value="drinks">Beverages</option>
+                                <option value="dessert">Dessert</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Kitchen Status</label>
+                            <input name="stock" type="text" value="In Stock" required />
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Ingredients / Description</label>
+                        <textarea name="description" rows="3" placeholder="Describe flavor profile, presentation details..." required style="width: 100%; background: #1a1b1f; border: 1px solid #333; color: #fff; padding: 12px; border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-full" type="submit" style="margin-top: 24px;">Save Dish Masterpiece</button>
+        </form>
+    </div>
+</div>
+
 <script src="app.js?v=3"></script>
 </body>
 </html>
-
-
-
-
